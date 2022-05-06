@@ -1,0 +1,24 @@
+{  "manifest_version": 3,
+  "name": "My last url",
+  "description": "retrieves your last url from lstorage and enters to the input",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": ["https://petstore.swagger.io/"],
+      "js": ["Main.js"]
+    }
+  ],
+  "permissions": ["storage"],
+  "action": {
+    "default_icon": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  }
+}
