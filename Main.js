@@ -1,12 +1,14 @@
-function main() {
-  let i = document.querySelector('.download-url-input');
+function main() {  let i = document.querySelector('.download-url-input');
 
   function cb(mutationList) {
     mutationList.forEach((mut) => {
       if (mut.attributeName === 'disabled' && mut.target.disabled == false) {
-        setTimeout(() => {
-          i.value = window.localStorage.getItem('myLastUrl') || i.value;
-        }, 500);
+        let lastUrl = window.localStorage.getItem('myLastUrl');
+        if (lastUrl) {
+          setTimeout(() => {
+            i.value = lastUrl;
+          }, 500);
+        }
       }
     });
   }
@@ -19,6 +21,4 @@ function main() {
   });
 }
 
-addEventListener('load', () => {
-  main();
-});
+addEventListener('load', main);
